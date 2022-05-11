@@ -1,17 +1,11 @@
 import axios from "axios";
-
 const key = process.env.REACT_APP_API_KEY;
 const server = axios.create({
-  baseURL: `https://api.spoonacular.com/recipes/random?apiKey=${key}`,
+  baseURL: `https://api.spoonacular.com/recipes/random?apiKey=${key}&number=20`,
 });
 
 const getRandomRecipe = async () => {
-  const data = await await fetch(
-    `httpa://api.spoonacular.com/recipes/random?apiKey=${key}`
-  ).json;
-  console.log(data);
-
-  //const { data } = await server.get();
+  const { data } = await server.get();
   return data;
 };
 
