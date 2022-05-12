@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   margin: 4rem 0rem;
 `;
 export const Card = styled.div`
-  min-height: 25rem;
+  min-height: 15rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -12,7 +12,7 @@ export const Card = styled.div`
   img {
     border-radius: 2rem;
     position: absolute;
-    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;

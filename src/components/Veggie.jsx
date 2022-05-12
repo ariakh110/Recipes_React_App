@@ -8,14 +8,17 @@ import * as api from "../api/api";
 import { Wrapper, Card } from "./Veggie.styles";
 
 const Veggie = () => {
-  const { data, isLoading, error } = useQuery(["veggie"], api.getRandomRecipe);
+  const { data, isLoading, error } = useQuery(["veggie"], api.getVeggie);
+  console.log(data);
+  isLoading && <div>Loading...</div>;
+  error && <div>Error!</div>;
   return (
     <div>
       <Wrapper>
         <h3>Our Vegetarian Picks</h3>
         <Splide
           options={{
-            perPage: 4,
+            perPage: 3,
             arrows: false,
             pagination: false,
             drag: "free",
