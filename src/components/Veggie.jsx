@@ -2,6 +2,7 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useQuery } from "react-query";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 //api to be used in the component
 import * as api from "../api/api";
 //styles to be used in the component
@@ -30,8 +31,10 @@ const Veggie = () => {
               return (
                 <SplideSlide key={index}>
                   <Card>
-                    <p>{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title} />
+                    <Link to={`/recipe/${recipe.id}`}>
+                      <p>{recipe.title}</p>
+                      <img src={recipe.image} alt={recipe.title} />
+                    </Link>
                   </Card>
                 </SplideSlide>
               );

@@ -4,23 +4,34 @@ const server = axios.create({
   baseURL: "https://api.spoonacular.com/recipes/",
 });
 
-// random?apiKey=${key}&number=20`
 const getRandomRecipe = async () => {
-  const { data } = await server.get("/random", {
+  const { data } = await server.get("random", {
     params: { apiKey: key, number: 20 },
   });
   return data;
 };
 const getVeggie = async () => {
-  const { data } = await server.get("/random", {
+  const { data } = await server.get("random", {
     params: { apiKey: key, number: 20, tags: "vegetarian" },
   });
   return data;
 };
 const getCuisine = async (name) => {
-  const { data } = await server.get("/complexSearch", {
+  const { data } = await server.get("complexSearch", {
     params: { apiKey: key, cuisine: `${name}` },
   });
   return data;
 };
-export { getRandomRecipe, getVeggie, getCuisine };
+const getSearchResult = async (name) => {
+  const { data } = await server.get("complexSearch", {
+    params: { apiKey: key, number: 20, query: `${name}` },
+  });
+  return data;
+};
+const getRecipe = async (id) => {
+  const { data } = await server.get(`/${id}/information`, {
+    params: { apiKey: key },
+  });
+  return data;
+};
+export { getRandomRecipe, getVeggie, getCuisine, getSearchResult, getRecipe };

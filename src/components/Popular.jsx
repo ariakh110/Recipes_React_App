@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 //slider
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
@@ -33,8 +34,10 @@ const Popular = () => {
               return (
                 <SplideSlide key={index}>
                   <Card>
-                    <p>{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title} />
+                    <Link to={`/recipe/${recipe.id}`}>
+                      <p>{recipe.title}</p>
+                      <img src={recipe.image} alt={recipe.title} />
+                    </Link>
                   </Card>
                 </SplideSlide>
               );
