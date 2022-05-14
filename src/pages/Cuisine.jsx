@@ -10,15 +10,19 @@ import { Card, Grid } from "./Cuisine.styles";
 
 const Cuisine = () => {
   const { type } = useParams();
+
   const { data, isLoading, isError } = useQuery(
     ["cuisine", type],
     api.getCuisine(type)
   );
+  console.log(data);
+
   isLoading && <p>Loading...</p>;
   isError && <p>Error...</p>;
 
   return (
     <>
+      <h1>{type}</h1>
       <Grid
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}

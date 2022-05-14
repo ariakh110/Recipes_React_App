@@ -35,13 +35,13 @@ const Recipe = () => {
         </div>
         <Info>
           <Button
-            className={active && "instructions" ? "active" : ""}
+            className={active === "instructions" ? "active" : ""}
             onClick={() => setActive("instructions")}
           >
             instructions
           </Button>
           <Button
-            className={active && "ingredients" ? "active" : ""}
+            className={active === "ingredients" ? "active" : ""}
             onClick={() => setActive("ingredients")}
           >
             ingredients

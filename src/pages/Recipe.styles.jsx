@@ -20,6 +20,11 @@ export const Wrapper = styled.div`
   ul {
     margin-top: 2rem;
   }
+  img {
+    width: 20rem;
+    height: auto;
+    object-fit: contain;
+  }
 `;
 export const Button = styled.button`
   padding: 1rem 2rem;

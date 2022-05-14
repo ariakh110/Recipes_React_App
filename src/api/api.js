@@ -5,25 +5,27 @@ const server = axios.create({
 });
 
 const getRandomRecipe = async () => {
-  const { data } = await server.get("random", {
+  const { data } = await server.get("/random", {
     params: { apiKey: key, number: 20 },
   });
   return data;
 };
 const getVeggie = async () => {
-  const { data } = await server.get("random", {
+  const { data } = await server.get("/random", {
     params: { apiKey: key, number: 20, tags: "vegetarian" },
   });
   return data;
 };
 const getCuisine = async (name) => {
-  const { data } = await server.get("complexSearch", {
+  const {
+    data: { results },
+  } = await server.get("/complexSearch", {
     params: { apiKey: key, cuisine: `${name}` },
   });
-  return data;
+  return results;
 };
 const getSearchResult = async (name) => {
-  const { data } = await server.get("complexSearch", {
+  const { data } = await server.get("/complexSearch", {
     params: { apiKey: key, number: 20, query: `${name}` },
   });
   return data;

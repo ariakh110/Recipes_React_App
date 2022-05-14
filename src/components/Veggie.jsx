@@ -10,7 +10,6 @@ import { Wrapper, Card } from "./Veggie.styles";
 
 const Veggie = () => {
   const { data, isLoading, error } = useQuery(["veggie"], api.getVeggie);
-  console.log(data);
   isLoading && <div>Loading...</div>;
   error && <div>Error!</div>;
   return (
